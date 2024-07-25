@@ -1,95 +1,59 @@
 # Files Manager
 
-Files Manager is a comprehensive back-end project designed to simulate a real-world file storage and management platform. This project encapsulates essential back-end development skills, including user authentication, database operations with MongoDB, caching with Redis, and handling background tasks. It serves as a practical application of the back-end trimester knowledge acquired in the ALX Software Engineering program, focusing on JavaScript, Node.js, Express, MongoDB, and Redis.
+[![Coverage Status](https://coveralls.io/repos/github/B3zaleel/alx-files_manager/badge.svg?branch=main)](https://coveralls.io/github/B3zaleel/alx-files_manager?branch=main)
 
-## Project Overview
+A simple file management API built with Express, MongoDB, Redis, Bull, and Node.js.
 
-The objective of this project is to create a platform that allows users to upload and manage files. Key features include:
+## Requirements
 
-- **User Authentication:** Secure user authentication using tokens.
-- **File Management:** Ability to list, upload, change permissions, and view files.
-- **Image Processing:** Generate thumbnails for uploaded images to enhance performance and user experience.
-- **Data Storage:** Utilize MongoDB for persistent storage of user and file information.
-- **Caching:** Implement Redis for efficient data caching, enhancing the application's performance.
-- **Background Processing:** Use background jobs for tasks such as thumbnail generation and welcome email sending, ensuring the application remains responsive.
+### Applications
 
-## Technologies
++ Node.js
++ Yarn (the package manager/resource negotiator)
 
-- **Back-End:** JavaScript (ES6), Node.js, Express.js
-- **Database:** MongoDB (NoSQL database for storing user and file data)
-- **Cache:** Redis (For caching and temporary data storage)
-- **Task Queue:** Bull (For managing background jobs)
-- **Other Libraries:** Mocha (for testing), Nodemon, Image-thumbnail, Mime-Types
+### APIs
 
-## Setup and Installation
++ A Google API should be created with at least an email sending scope and a valid URL (e.g.; `http://localhost:5000/`) should be one of the redirect URIs. The `credentials.json` file should be stored in the root directory of this project.
 
-1. **Prerequisites:**
-    - Node.js (version 12.x.x)
-    - MongoDB (Running on default port 27017 or set via environment variables)
-    - Redis (Running on default port or set via environment variables)
-    - Git
+### Environment Variables
 
-2. **Clone the repository:**
-    ```sh
-    git clone https://github.com/your-github-username/alx-files_manager.git
-    cd alx-files_manager
-    ```
+The required environment variables should be stored in a file named `.env` and each line should have the format `Name=Value`. The table below lists the environment variables that will be used by this server:
 
-3. **Install dependencies:**
-    ```sh
-    npm install
-    ```
+| Name | Required | Description |
+|:-|:-|:-|
+| GOOGLE_MAIL_SENDER | Yes | The email address of the account responsible for sending emails to users. |
+| PORT | No (Default: `5000`)| The port the server should listen at. |
+| DB_HOST | No (Default: `localhost`)| The database host. |
+| DB_PORT | No (Default: `27017`)| The database port. |
+| DB_DATABASE | No (Default: `files_manager`)| The database name. |
+| FOLDER_PATH | No (Default: `/tmp/files_manager` (Linux, Mac OS X) & `%TEMP%/files_manager` (Windows)) | The local folder where files are saved. |
 
-4. **Environment Variables:**
-    Create a `.env` file in the root directory and set the following variables:
-    - `PORT`: Port for the server (default: 5000)
-    - `DB_HOST`: MongoDB host (default: localhost)
-    - `DB_PORT`: MongoDB port (default: 27017)
-    - `DB_DATABASE`: Database name (default: files_manager)
-    - `FOLDER_PATH`: Path for storing uploaded files (default: /tmp/files_manager)
+## Installation
 
-5. **Running the application:**
-    - Start the server:
-        ```sh
-        npm start
-        ```
-    - Start the worker (in a separate terminal):
-        ```sh
-        npm run start-worker
-        ```
++ Clone this repository and switch to the cloned repository's directory.
++ Install the packages using `yarn install` or `npm install`.
 
-## API Endpoints
+## Usage
 
-- `GET /status`: Check the health of the application.
-- `GET /stats`: Get statistics about users and files.
-- `POST /users`: Create a new user.
-- `GET /connect`: Authenticate a user.
-- `GET /disconnect`: Log out a user.
-- More endpoints for file management detailed in the API documentation.
+Start the Redis and MongoDB services on your system and run `yarn start-server` or `npm run start-server`.
 
-## Project Structure
+## Tests
 
-- `controllers/`: Contains controller files for handling API endpoint logic.
-- `routes/`: Defines the API endpoints and associates them with their respective controllers.
-- `utils/`: Utility classes for database and caching operations.
-- `worker.js`: Background job processing.
-- `server.js`: Entry point for the application.
++ Create a separate `.env` file for the tests named `.env.test` and store the value of the environment variables for the testing event in it.
++ Run `yarn test` or `npm run test` to execute the E2E tests.
 
-## Learning Objectives
+## Documentation
 
-By the end of this project, I have solidified my knowledge in:
++ TODO: Generate OpenAPI documentation with [**apidoc**](https://www.npmjs.com/package/apidoc).
 
-- Building APIs with Express.js
-- User authentication mechanisms
-- Data manipulation with MongoDB
-- Implementing caching using Redis
-- Background job processing
-- Image processing for thumbnails
-
-## License
-
-This project is provided for educational purposes only. It is not affiliated with any actual file storage platform.
-
----
-
-**Author:** [Shaza Ali](https://github.com/shazaaly)
+## RESOURCES
++ [x] [Node JS getting started](https://intranet.alxswe.com/rltoken/8jNm2s_LfVKMqR3vHLn_uw)
++ [x] [Process API doc](https://intranet.alxswe.com/rltoken/uYPplj2cPK8pcP0LtV6RuA)
++ [x] [Express getting started](https://intranet.alxswe.com/rltoken/SujfeWKCWmUMomfETjETEg)
++ [x] [Mocha documentation](https://intranet.alxswe.com/rltoken/FzEwplmoZiyGvkgKllZNJw)
++ [x] [Nodemon documentation](https://intranet.alxswe.com/rltoken/pdNNTX0OLugbhxvP3sLgOw)
++ [x] [MongoDB](https://intranet.alxswe.com/rltoken/g1x7y_3GskzVAJBTXcSjmA)
++ [x] [Bull](https://intranet.alxswe.com/rltoken/NkHBpGrxnd0sK_fDPMbihg)
++ [x] [Image thumbnail](https://intranet.alxswe.com/rltoken/KX6cck2nyLpQOTDMLcwxLg)
++ [x] [Mime-Types](https://intranet.alxswe.com/rltoken/j9B0Kc-4HDKLUe88ShbOjQ)
++ [x] [Redis](https://intranet.alxswe.com/rltoken/nqwKRszO8Tkj_ZWW1EFwGw)      
